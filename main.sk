@@ -1,0 +1,70 @@
+command /help:
+	trigger:
+		message "<yellow><b>--- Help ---"
+		message "/rules - Server rules"
+		message "/about - Server info"
+command /rules:
+	trigger:
+		message "<yellow><b>--- Rules ---"
+		message "1. Please be nice"
+		message "2. Use common sense"
+		message "3. Respect other people's homes/places"
+		message "4. Excessive cursing will result in ban"
+		message "5. No hacking allowed"
+command /about:
+	trigger:
+		message "<yellow><b>--- About ---"
+		message "This Minecraft server is hosted in North Carolina."
+		message "RAM: 6GB DDR3"
+		message "CPU: Intel Core i3 2.4Ghz"
+		message  "Storage: 60GB SSD"
+on join:
+    wait 5 ticks
+    broadcast "Welcome, %player% to SkegCraft!"
+command /save:
+    trigger:
+        if player is OP:
+            make console execute command "/save-all"
+
+# Block commands with stupid humor
+command /tp:
+    trigger:
+        message "Toilet paper?"
+command /give:
+    trigger:
+        message "No, you may not have 64 diamond blocks."
+command /plugins:
+    trigger:
+        message "The only plugin I use is Skript, which is used for some basic server customization"
+command /kill:
+    trigger:
+        message "Did you really think that would work?"
+command /clear:
+	trigger:
+		message "No, please don't do that."
+
+# Custom made chat things
+on chat:
+	cancel event
+	if player is "Pufflegamerz":
+		broadcast "<red><%player%><white> %message%"
+	else if player is "MasterOfTheTiger":
+		broadcast "<orange><%player%><white> %message%"
+	else if player is "ShanShen":
+		broadcast "<yellow><%player%><white> %message%"
+	else if player is "Icecat3":
+		broadcast "<cyan><%player%><white> %message%"
+	else:
+		broadcast "<%player%> %message%"
+
+# Prevent explosions at spawn
+on explosion prime:
+	set {_block} to location of targeted block
+	set {_spawnProtection} to 165
+	if x-coordinate of event-entity is smaller than {_spawnProtection} + 216:
+		if x-coordinate of event-entity is bigger than -1 * {_spawnProtection} + 216:
+			if z-coordinate of event-entity is smaller than {_spawnProtection} + 243:
+				if z-coordinate of event-entity is bigger than -1 * {_spawnProtection} + 243:
+					cancel event
+# This is the spawn block
+# 216 63 243
