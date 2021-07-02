@@ -1,61 +1,81 @@
 command /help:
-        trigger:
-                message "<yellow><b>--- Help ---"
-                message "/rules - Server rules"
-                message "/about - Server info"
+	trigger:
+		message "<yellow><b>--- Help ---"
+		message "/rules - Server rules"
+		message "/about - Server info"
+		message "Discord: https://v.ht/ilVJ"
+		message "Matrix: Skegcraft:matrix.org"
+
 command /rules:
-        trigger:
-                message "<yellow><b>--- Rules ---"
-                message "1. Please be nice"
-                message "2. Use common sense"
-                message "3. Respect other people's homes/places"
-                message "4. Excessive cursing will result in ban"
-                message "5. You may not duplicate items or exploit unintended behavior in the server"
+	trigger:
+		message "<yellow><b>--- Rules ---"
+		message "1. Please be nice"
+		message "2. Use common sense"
+		message "3. Respect other people's homes/places"
+		message "4. Excessive cursing will result in ban"
+		message "5. You may not duplicate items or exploit unintended behavior in the server"
+
 command /about:
-        trigger:
-                message "<yellow><b>--- About ---"
-                message "This server is hosted in North Carolina."
-                message "RAM: 8GB DDR3"
-                message "CPU: Intel Core i5 2400"
-                message  "Storage: 60GB SSD"
+	trigger:
+		message "<yellow><b>--- About ---"
+		message "This server is hosted in North Carolina."
+		message "RAM: 8GB DDR3"
+		message "CPU: Intel Core i5 2400"
+		message  "Storage: 60GB SSD"
+
 on join:
-        wait 5 ticks
-        broadcast "Welcome, %player% to SkegCraft!"
-        make console execute command "/execute at @a run playsound minecraft:entity.experience_orb.pickup ambient @p ~ ~ ~"
+	wait 5 ticks
+	broadcast "Welcome, %player% to SkegCraft!"
+	make console execute command "/execute at @a run playsound minecraft:entity.experience_orb.pickup ambient @p ~ ~ ~"
 
 # Block commands with stupid humor
 command /tp:
-        trigger:
-                message "Toilet paper?"
+	usage: Nice try.
+	trigger:
+		message ""
+
 command /give:
-        trigger:
-                message "No, you may not have 64 diamond blocks."
+	usage: No, you may not have 64 diamond blocks.
+	trigger:
+		message ""
+
 command /plugins:
-        trigger:
-                message "Plugins? I don't use those.. Or do i?"
+	usage: Plugins? I don't use those.. Or do I?
+	trigger:
+		message ""
+
 command /kill:
-        trigger:
-                message "Did you really think that would work?"
+	usage: Did you really think that would work?
+	trigger:
+		message ""
+
 command /clear:
-        trigger:
-                message "I think you have been using too much Unix."
+	usage: I think you have been using too much Unix.
+	trigger:
+		message ""
 
 # Custom made chat things
 on chat:
-        cancel event
-        if player is "petabytes_":
-                broadcast "<red>[%player%]<white> %message%"
-        else if player is "MasterOfTheTiger":
-                broadcast "<orange><%player%><white> %message%"
-        else if player is "ShanShen":
-                broadcast "<yellow><%player%><white> %message%"
-        else if player is "Icecat3":
-                broadcast "<cyan><%player%><white> %message%"
-        else if player is "aarchangels":
-                broadcast "<blue><%player%><white> %message%"
-        else if player is "323GHS":
-                broadcast "<blue><%player%><white> %message%"
-        else if player is "BoblyPizza":
-                broadcast "<red><%player%><white> %message%"
-        else:
-                broadcast "<%player%> %message%"
+	cancel event
+	if player is "petabyt":
+		broadcast "<red><Daniel><white> %message%"
+	else if player is "MasterOfTheTiger":
+		broadcast "<orange><%player%><white> %message%"
+	else if player is "ShanShen":
+		broadcast "<yellow><%player%><white> %message%"
+	else if player is "Icecat3":
+		broadcast "<cyan><%player%><white> %message%"
+	else if player is "aarchangels":
+		broadcast "<blue><%player%><white> %message%"
+	else if player is "323GHS":
+		broadcast "<blue><%player%><white> %message%"
+	else if player is "BoblyPizza":
+		broadcast "<red><%player%><white> %message%"
+	else if player is "Atraune":
+		broadcast "<orange><%player%><white> %message%"
+	else if player is "SuperLuca07":
+		broadcast "<orange><%player%><white> %message%"
+	else if player is "Cookiekitten73":
+		broadcast "<purple><%player%><white> %message%"
+	else:
+		broadcast "<%player%> %message%"
